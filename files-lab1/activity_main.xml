@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    HelloToast - activity_main.xml
+    
+    Layout principal de l'application HelloToast.
+    Définit l'interface utilisateur avec:
+    - Un LinearLayout (conteneur)
+    - Un TextView pour afficher le compteur
+    - Deux Buttons pour les interactions
+    
+    Concepts:
+    - android:id = identifiant unique (référencé en Java avec @+id/)
+    - android:layout_width/height = dimensions (match_parent = parent, wrap_content = contenu)
+    - android:text = contenu texte
+    - android:textSize = taille du texte (sp = scale-independent pixels)
+    - android:gravity = alignement du contenu
+    - android:layout_margin* = espaces autour
+    - android:background = couleur de fond
+    - android:padding = espace interne
+-->
+
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
+    android:background="#F5F5F5"
+    tools:context=".MainActivity">
+
+    <!-- 
+        ================================
+        TITRE DE L'APPLICATION
+        ================================
+    -->
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HelloToast Lab"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        android:layout_marginBottom="32dp" />
+
+    <!-- 
+        ================================
+        COMPTEUR - AFFICHAGE PRINCIPAL
+        ================================
+        
+        C'est ici que s'affiche la valeur du compteur.
+        On l'appelle depuis MainActivity avec:
+            textCount = findViewById(R.id.text_count);
+        Et on le met à jour avec:
+            textCount.setText(String.valueOf(count));
+    -->
+    <TextView
+        android:id="@+id/text_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="72sp"
+        android:textStyle="bold"
+        android:textColor="#2196F3"
+        android:layout_marginBottom="24dp" />
+
+    <!-- 
+        ================================
+        LABEL DU COMPTEUR
+        ================================
+    -->
+    <TextView
+        android:id="@+id/text_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clics"
+        android:textSize="18sp"
+        android:textColor="#666666"
+        android:layout_marginBottom="40dp" />
+
+    <!-- 
+        ================================
+        BOUTON TOAST
+        ================================
+        
+        Bouton pour afficher un message Toast.
+        Identifiant: button_toast
+        
+        Écouteur en Java:
+            Button buttonToast = findViewById(R.id.button_toast);
+            buttonToast.setOnClickListener(v -> {
+                Toast.makeText(MainActivity.this, "Bonjour !", Toast.LENGTH_SHORT).show();
+            });
+    -->
+    <Button
+        android:id="@+id/button_toast"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Afficher un Message"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:background="#FF9800"
+        android:backgroundTint="#FF9800"
+        android:layout_marginBottom="12dp"
+        android:padding="12dp" />
+
+    <!-- 
+        ================================
+        BOUTON COMPTEUR
+        ================================
+        
+        Bouton pour incrémenter le compteur.
+        Identifiant: button_count
+        
+        Écouteur en Java:
+            Button buttonCount = findViewById(R.id.button_count);
+            buttonCount.setOnClickListener(v -> {
+                count++;
+                textCount.setText(String.valueOf(count));
+            });
+    -->
+    <Button
+        android:id="@+id/button_count"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Incrémenter le Compteur"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:background="#2196F3"
+        android:backgroundTint="#2196F3"
+        android:padding="12dp" />
+
+</LinearLayout>
